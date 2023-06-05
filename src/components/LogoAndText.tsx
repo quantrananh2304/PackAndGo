@@ -5,14 +5,22 @@ import { logo } from '~/assets/images';
 
 type Props = {
   containerStyle?: any;
+  logoStyle?: any;
+  textStyle?: any;
 };
 
-export default function LogoAndText({ containerStyle }: Props) {
+export default function LogoAndText({
+  containerStyle = {},
+  logoStyle = {},
+  textStyle = {},
+}: Props) {
   return (
     <View style={{ ...style.container, ...containerStyle }}>
-      <Image style={style.logo} source={logo} />
+      <Image style={{ ...style.logo, ...logoStyle }} source={logo} />
 
-      <AppText style={style.packAndGo} text="Pack&Go"></AppText>
+      <AppText
+        style={{ ...style.packAndGo, ...textStyle }}
+        text="Pack&Go"></AppText>
     </View>
   );
 }

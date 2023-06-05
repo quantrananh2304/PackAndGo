@@ -2,10 +2,10 @@ import React from 'react';
 import { SafeAreaView } from 'react-native';
 import { AppText } from '~/components';
 
-export default function SignIn() {
+export default function Home({ navigation }: any) {
   return (
     <SafeAreaView>
-      <AppText text="Sign In" />
+      <AppText text="Home" />
     </SafeAreaView>
   );
 }

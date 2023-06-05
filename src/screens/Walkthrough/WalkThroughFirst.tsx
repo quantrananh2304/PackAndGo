@@ -9,7 +9,10 @@ type Props = {
 
 export default function WalkThroughFirst({ navigation }: Props) {
   useEffect(() => {
-    setTimeout(() => navigation.replace(Screen.Second), 1000);
+    setTimeout(
+      () => navigation.reset({ index: 0, routes: [{ name: Screen.Second }] }),
+      1000,
+    );
   }, []);
 
   return (

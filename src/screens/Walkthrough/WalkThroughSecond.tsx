@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, View } from 'react-native';
 import { walkthroughWelcome } from '~/assets/images';
-import { AppText, WalkthroughButton } from '~/components';
+import { AppText, GreetingText, WalkthroughButton } from '~/components';
 import { Screen } from '~/navigations';
 import { Colors } from '~/themes';
 
@@ -11,9 +11,7 @@ export default function WalkThroughSecond({ navigation }: { navigation: any }) {
       <Image source={walkthroughWelcome} style={style.image} />
 
       <View>
-        <AppText style={style.greeting} text="Hi mate," />
-
-        <AppText style={style.welcome} text="Welcome to Travel!"></AppText>
+        <GreetingText />
 
         <AppText
           text="Life is short, the world is wide. Then give yourself a day off,
@@ -23,8 +21,12 @@ export default function WalkThroughSecond({ navigation }: { navigation: any }) {
 
         <WalkthroughButton
           buttonText="Get Started"
-          buttonOnPress={() => navigation.replace(Screen.Third)}
-          onSkipPress={() => navigation.replace(Screen.SignIn)}
+          buttonOnPress={() =>
+            navigation.reset({ index: 0, routes: [{ name: Screen.Third }] })
+          }
+          onSkipPress={() =>
+            navigation.reset({ index: 0, routes: [{ name: Screen.SignIn }] })
+          }
         />
       </View>
     </View>
@@ -46,20 +48,6 @@ const style = {
     width: 530,
     height: 660,
     marginTop: '-55%',
-  },
-
-  greeting: {
-    fontFamily: 'BeVietnamPro-Regular',
-    fontWeight: 500,
-    fontSize: 20,
-    color: Colors.grey,
-  },
-
-  welcome: {
-    fontFamily: 'BeVietnamPro-Regular',
-    fontWeight: 600,
-    fontSize: 28,
-    color: Colors.black,
   },
 
   description: {

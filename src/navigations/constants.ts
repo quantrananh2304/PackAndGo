@@ -4,6 +4,9 @@ enum Screen {
   Third = 'Third',
 
   SignIn = 'SignIn',
+  InputPassword = 'InputPassword',
+
+  Home = 'Home',
 }
 
 export default Screen;

@@ -1,6 +1,7 @@
-import WalkThroughFirst from './WalkThroughFirst';
-import WalkThroughSecond from './WalkThroughSecond';
-import WalkThroughThird from './WalkThroughThird';
-import SignIn from './SignIn';
+import WalkThroughFirst from './Walkthrough/WalkThroughFirst';
+import WalkThroughSecond from './Walkthrough/WalkThroughSecond';
+import WalkThroughThird from './Walkthrough/WalkThroughThird';
+import SignIn from './SignIn/SignIn';
+import Home from './Home/Home';
 
-export { WalkThroughFirst, WalkThroughSecond, WalkThroughThird, SignIn };
+export { WalkThroughFirst, WalkThroughSecond, WalkThroughThird, SignIn, Home };

@@ -83,10 +83,12 @@ export default function WalkThroughThird({ navigation }: { navigation: any }) {
             if (active < 2) {
               setActive(prev => prev + 1);
             } else {
-              navigation.replace(Screen.SignIn);
+              navigation.reset({ index: 0, routes: [{ name: Screen.SignIn }] });
             }
           }}
-          onSkipPress={() => navigation.replace(Screen.SignIn)}
+          onSkipPress={() =>
+            navigation.reset({ index: 0, routes: [{ name: Screen.SignIn }] })
+          }
         />
       </View>
     </View>
