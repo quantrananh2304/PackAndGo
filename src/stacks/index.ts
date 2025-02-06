@@ -1,3 +1,3 @@
-import Stack from './Stack';
+import Screens from './Stack';
 
-export { Stack };
+export { Screens };

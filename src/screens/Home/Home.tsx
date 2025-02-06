@@ -5,7 +5,7 @@ import { AppText } from '~/components';
 export default function Home({ navigation }: any) {
   return (
     <SafeAreaView>
-      <AppText text="Home" />
+      <AppText>Home</AppText>
     </SafeAreaView>
   );
 }

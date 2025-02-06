@@ -58,24 +58,25 @@ export default function WalkThroughThird({ navigation }: { navigation: any }) {
       <View>
         <View style={{ marginTop: 69 }}>
           <AppText
-            text={content[active].title}
             style={{
               fontWeight: 600,
               fontSize: 22,
               color: Colors.black,
               textAlign: 'center',
-            }}
-          />
+            }}>
+            {content[active].title}
+          </AppText>
+
           <AppText
-            text={content[active].content}
             style={{
               color: Colors.grey,
               fontWeight: 400,
               fontSize: 15,
               marginTop: 16,
               textAlign: 'center',
-            }}
-          />
+            }}>
+            {content[active].content}
+          </AppText>
         </View>
 
         <WalkthroughButton

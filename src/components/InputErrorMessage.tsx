@@ -19,7 +19,7 @@ function ErrorMessage({ text, visible, style, numberOfLines = 1 }: Props) {
 
   return (
     <View style={[styles.errorContainer, style]}>
-      <AppText text={text} />
+      <AppText>{text}</AppText>
     </View>
   );
 }

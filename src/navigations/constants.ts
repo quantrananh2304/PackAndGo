@@ -6,6 +6,10 @@ enum Screen {
   SignIn = 'SignIn',
   InputPassword = 'InputPassword',
 
+  Register = 'Register',
+  VerifyOTP = 'VerifyOTP',
+  Interest = 'Interest',
+
   Home = 'Home',
 }
 

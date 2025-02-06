@@ -18,9 +18,7 @@ export default function LogoAndText({
     <View style={{ ...style.container, ...containerStyle }}>
       <Image style={{ ...style.logo, ...logoStyle }} source={logo} />
 
-      <AppText
-        style={{ ...style.packAndGo, ...textStyle }}
-        text="Pack&Go"></AppText>
+      <AppText style={{ ...style.packAndGo, ...textStyle }}>Pack&Go</AppText>
     </View>
   );
 }

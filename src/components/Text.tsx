@@ -4,10 +4,10 @@ import { Colors } from '~/themes';
 
 type TextProps = {
   style?: any;
-  text: string;
+  children: any;
 };
 
-export default function AppText({ style, text }: TextProps) {
+export default function AppText({ style, children }: TextProps) {
   return (
     <Text
       style={{
@@ -17,7 +17,7 @@ export default function AppText({ style, text }: TextProps) {
         color: Colors.black,
         ...style,
       }}>
-      {text}
+      {children}
     </Text>
   );
 }

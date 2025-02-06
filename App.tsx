@@ -6,16 +6,15 @@
  */
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
-import { Stack } from '~/stacks';
+import Screens from '~/stacks/Stack';
 
 function App(): JSX.Element {
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
       <NavigationContainer>
-        <Stack />
+        <Screens />
       </NavigationContainer>
     </GestureHandlerRootView>
   );

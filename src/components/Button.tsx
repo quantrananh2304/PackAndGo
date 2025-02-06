@@ -1,5 +1,5 @@
 import React from 'react';
-import { TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View } from 'react-native';
 import AppText from './Text';
 import { Colors } from '~/themes';
 import { useFormikContext } from 'formik';
@@ -27,15 +27,15 @@ export default function Button({
         disabled={disabled}
         style={{ ...style.buttonStyle, ...buttonStyle }}
         onPress={form ? form.handleSubmit : buttonOnPress}>
-        <AppText
-          style={{ ...style.textStyle, ...textStyle }}
-          text={buttonText}></AppText>
+        <AppText style={{ ...style.textStyle, ...textStyle }}>
+          {buttonText}
+        </AppText>
       </TouchableOpacity>
     </View>
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   buttonStyle: {
     width: '100%',
     height: 52,
@@ -54,4 +54,4 @@ const style = {
     color: Colors.white,
     textAlign: 'center',
   },
-};
+});

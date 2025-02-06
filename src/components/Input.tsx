@@ -22,7 +22,6 @@ type Props = {
   enableValidateOnBlur?: boolean;
   isShowErrMsg?: boolean;
   containerStyle?: any;
-  setDisabled?: (isDisabled: boolean) => void;
   isShowClearButton?: boolean;
   rightIconStyle?: any;
   secureTextEntry?: boolean;
@@ -37,7 +36,6 @@ export default function Input({
   enableValidateOnBlur = false,
   isShowErrMsg = false,
   containerStyle = {},
-  setDisabled = (isDisabled: boolean) => {},
   isShowClearButton = false,
   rightIconStyle = {},
   secureTextEntry = false,
@@ -61,17 +59,6 @@ export default function Input({
   function onChangeText(text: string) {
     setFieldValue(name, text);
   }
-
-  useEffect(() => {
-    console.log('isError', isError);
-    if (isError && !_.get(values, name, undefined)) {
-      console.log('&', true);
-      setDisabled(true);
-    } else {
-      console.log('&', false);
-      setDisabled(false);
-    }
-  }, [isError, isFocusing]);
 
   return (
     <View style={containerStyle}>

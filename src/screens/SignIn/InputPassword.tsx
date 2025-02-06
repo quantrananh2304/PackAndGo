@@ -30,6 +30,14 @@ export default function InputPassword({ navigation }: any) {
   const [disabled, setDisabled] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
 
+  const onValidate = (values: any) => {
+    if (values.password) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  };
+
   return (
     <KeyboardAvoidingView behavior={Metrics.isIOS ? 'padding' : 'height'}>
       <View
@@ -59,28 +67,28 @@ export default function InputPassword({ navigation }: any) {
             containerStyle={{ marginBottom: 40 }}
           />
 
-          <AppText style={{ marginBottom: 8 }} text="Password" />
+          <AppText style={{ marginBottom: 8 }}>Password</AppText>
 
           <Form
             initialValues={{ phoneNumber: '' }}
             onSubmit={onSubmit}
             validationSchema={validationSchema}
-            validateOnChange={true}>
+            validateOnChange={true}
+            validate={onValidate}>
             <Input
               placeholder="Enter your password"
               inputStyle={{ marginBottom: 8 }}
               keyboardType="default"
               name="password"
-              setDisabled={setDisabled}
               isShowClearButton={true}
               secureTextEntry={true}
             />
 
             <TouchableOpacity style={{ width: '100%', marginBottom: 24 }}>
               <AppText
-                text="Forgot password?"
-                style={{ textAlign: 'right', fontSize: 14, fontWeight: 400 }}
-              />
+                style={{ textAlign: 'right', fontSize: 14, fontWeight: 400 }}>
+                Forgot password?
+              </AppText>
             </TouchableOpacity>
 
             <Button
@@ -104,13 +112,19 @@ export default function InputPassword({ navigation }: any) {
               flexDirection: 'row',
               justifyContent: 'center',
             }}>
-            <AppText
-              style={{ color: Colors.grey }}
-              text="Don't have account?"
-            />
+            <AppText style={{ color: Colors.grey }}>
+              Don't have account?
+            </AppText>
 
-            <TouchableOpacity style={{ marginLeft: 4 }}>
-              <AppText text="Register here" style={{ color: Colors.purple }} />
+            <TouchableOpacity
+              style={{ marginLeft: 4 }}
+              onPress={() =>
+                navigation.reset({
+                  index: 0,
+                  routes: [{ name: Screen.Register }],
+                })
+              }>
+              <AppText style={{ color: Colors.purple }}>Register here</AppText>
             </TouchableOpacity>
           </View>
         </View>

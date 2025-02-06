@@ -13,11 +13,11 @@ export default function WalkThroughSecond({ navigation }: { navigation: any }) {
       <View>
         <GreetingText />
 
-        <AppText
-          text="Life is short, the world is wide. Then give yourself a day off,
+        <AppText style={style.description}>
+          Life is short, the world is wide. Then give yourself a day off,
           discover the best lovely places, plan a trip, and spend some time away
-          from familiar routines with your friends."
-          style={style.description}></AppText>
+          from familiar routines with your friends.
+        </AppText>
 
         <WalkthroughButton
           buttonText="Get Started"

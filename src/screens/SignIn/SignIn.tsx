@@ -1,11 +1,5 @@
-import { FormikHelpers, useFormikContext } from 'formik';
 import React, { useState } from 'react';
-import {
-  KeyboardAvoidingView,
-  TextInput,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { KeyboardAvoidingView, TouchableOpacity, View } from 'react-native';
 import {
   AppText,
   Button,
@@ -38,44 +32,46 @@ export default function SignIn({ navigation }: any) {
   const [disabled, setDisabled] = useState<boolean>(true);
   const [loading, setLoading] = useState<boolean>(false);
 
+  const onValidate = (values: any) => {
+    if (
+      values.phoneNumber &&
+      new RegExp(/(^84|^0)[0-9]{9}$/i).test(values.phoneNumber)
+    ) {
+      setDisabled(false);
+    } else {
+      setDisabled(true);
+    }
+  };
+
+  const handleNavigateRegister = () => {
+    navigation.reset({ index: 0, routes: [{ name: Screen.Register }] });
+  };
+
   return (
     <KeyboardAvoidingView behavior={Metrics.isIOS ? 'padding' : 'height'}>
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          paddingHorizontal: 16,
-          paddingBottom: 58,
-          display: 'flex',
-          justifyContent: 'space-between',
-          backgroundColor: Colors.white,
-        }}>
+      <View style={style.container}>
         <LogoAndText
-          containerStyle={{
-            width: '100%',
-            marginTop: 92,
-            height: 108,
-          }}
-          logoStyle={{ width: 60, height: 60 }}
-          textStyle={{ fontSize: 24, marginTop: 12 }}
+          containerStyle={style.logoAndText.container}
+          logoStyle={style.logoAndText.logo}
+          textStyle={style.logoAndText.text}
         />
 
         <View>
-          <GreetingText containerStyle={{ marginBottom: 40 }} />
+          <GreetingText containerStyle={style.greeting} />
 
-          <AppText style={{ marginBottom: 8 }} text="Phone number" />
+          <AppText style={style.label}>Phone number</AppText>
 
           <Form
             initialValues={{ phoneNumber: '' }}
             onSubmit={onSubmit}
             validationSchema={validationSchema}
-            validateOnChange={true}>
+            validateOnChange={true}
+            validate={onValidate}>
             <Input
               placeholder="Enter your phone number"
-              inputStyle={{ marginBottom: 24 }}
+              inputStyle={style.input}
               keyboardType="numeric"
               name="phoneNumber"
-              setDisabled={setDisabled}
               isShowClearButton={true}
             />
 
@@ -83,31 +79,22 @@ export default function SignIn({ navigation }: any) {
               disabled={disabled || loading}
               buttonStyle={
                 disabled || loading
-                  ? {
-                      marginBottom: 24,
-                      shadowOpacity: 0,
-                      backgroundColor: Colors.purple_lighter,
-                    }
-                  : { marginBottom: 24 }
+                  ? style.button.disabled
+                  : style.button.active
               }
-              // buttonOnPress={onSubmit}
               buttonText="Next"
             />
           </Form>
 
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-            }}>
-            <AppText
-              style={{ color: Colors.grey }}
-              text="Don't have account?"
-            />
+          <View style={style.register.container}>
+            <AppText style={{ color: Colors.grey }}>
+              Don't have account?
+            </AppText>
 
-            <TouchableOpacity style={{ marginLeft: 4 }}>
-              <AppText text="Register here" style={{ color: Colors.purple }} />
+            <TouchableOpacity
+              style={{ marginLeft: 4 }}
+              onPress={handleNavigateRegister}>
+              <AppText style={{ color: Colors.purple }}>Register here</AppText>
             </TouchableOpacity>
           </View>
         </View>
@@ -115,3 +102,65 @@ export default function SignIn({ navigation }: any) {
     </KeyboardAvoidingView>
   );
 }
+
+const style = {
+  container: {
+    width: '100%',
+    height: '100%',
+    paddingHorizontal: 16,
+    paddingBottom: 58,
+    display: 'flex',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.white,
+  },
+
+  logoAndText: {
+    container: {
+      width: '100%',
+      marginTop: 92,
+      height: 108,
+    },
+
+    logo: {
+      width: 60,
+      height: 60,
+    },
+
+    text: {
+      fontSize: 24,
+      marginTop: 12,
+    },
+  },
+
+  greeting: {
+    marginBottom: 40,
+  },
+
+  label: {
+    marginBottom: 8,
+  },
+
+  input: {
+    marginBottom: 24,
+  },
+
+  button: {
+    disabled: {
+      marginBottom: 24,
+      shadowOpacity: 0,
+      backgroundColor: Colors.purple_lighter,
+    },
+
+    active: {
+      marginBottom: 24,
+    },
+  },
+
+  register: {
+    container: {
+      display: 'flex',
+      flexDirection: 'row',
+      justifyContent: 'center',
+    },
+  },
+};

@@ -16,9 +16,9 @@ export default function GreetingText({
 }: Props) {
   return (
     <View style={containerStyle}>
-      <AppText style={style.greeting} text={greetingText} />
+      <AppText style={style.greeting}>{greetingText}</AppText>
 
-      <AppText style={style.welcome} text={welcomeText}></AppText>
+      <AppText style={style.welcome}>{welcomeText}</AppText>
     </View>
   );
 }
