@@ -1,5 +1,5 @@
 import React, { useMemo, useState } from 'react';
-import { Image, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { PanGestureHandler, State } from 'react-native-gesture-handler';
 import {
   walkthroughAdventure,
@@ -96,7 +96,7 @@ export default function WalkThroughThird({ navigation }: { navigation: any }) {
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
     display: 'flex',
@@ -108,4 +108,4 @@ const style = {
   },
 
   image: { width: Metrics.screenWidth, height: '60%' },
-};
+});

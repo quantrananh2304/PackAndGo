@@ -1,8 +1,9 @@
 import { useFormikContext } from 'formik';
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import {
   Image,
   KeyboardTypeOptions,
+  StyleSheet,
   TextInput,
   TouchableWithoutFeedback,
   View,
@@ -100,7 +101,7 @@ export default function Input({
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   inputStyle: {
     width: '100%',
     height: 55,
@@ -110,7 +111,7 @@ const style = {
     paddingLeft: 24,
     paddingBottom: 16,
     fontSize: 15,
-    fontWeight: '400',
+    fontWeight: Fonts.fontWeight.medium,
     fontFamily: Fonts.fontFamily,
   },
   rightIconStyle: {
@@ -120,4 +121,4 @@ const style = {
     top: 22,
     right: 22,
   },
-};
+});

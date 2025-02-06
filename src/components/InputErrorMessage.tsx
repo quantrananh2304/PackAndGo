@@ -2,7 +2,6 @@
 
 import React from 'react';
 import { View, StyleSheet, ViewStyle } from 'react-native';
-import { Colors, Metrics } from '~/themes';
 import AppText from './Text';
 
 type Props = {

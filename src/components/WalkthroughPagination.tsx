@@ -35,7 +35,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.purple,
     borderRadius: 100,
     borderWidth: 4,
-    borderColor: 'rgba(204, 175, 242, 1)',
+    borderColor: Colors.purple_border,
     borderStyle: 'solid',
   },
   inactiveDot: {

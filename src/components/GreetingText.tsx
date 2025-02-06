@@ -1,7 +1,7 @@
 import React from 'react';
 import AppText from './Text';
-import { Colors } from '~/themes';
-import { View } from 'react-native';
+import { Colors, Fonts } from '~/themes';
+import { StyleSheet, View } from 'react-native';
 
 type Props = {
   containerStyle?: any;
@@ -23,16 +23,16 @@ export default function GreetingText({
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   greeting: {
-    fontWeight: 500,
+    fontWeight: Fonts.fontWeight.semiBold,
     fontSize: 20,
     color: Colors.grey,
   },
 
   welcome: {
-    fontWeight: 600,
+    fontWeight: Fonts.fontWeight.bold,
     fontSize: 28,
     color: Colors.black,
   },
-};
+});

@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleProp, Text, ViewStyle } from 'react-native';
-import { Colors } from '~/themes';
+import { Colors, Fonts } from '~/themes';
 
 type TextProps = {
   style?: any;
@@ -11,8 +11,8 @@ export default function AppText({ style, children }: TextProps) {
   return (
     <Text
       style={{
-        fontFamily: 'BeVietnamPro-Regular',
-        fontWeight: 600,
+        fontFamily: Fonts.fontFamily,
+        fontWeight: Fonts.fontWeight.bold,
         fontSize: 15,
         color: Colors.black,
         ...style,

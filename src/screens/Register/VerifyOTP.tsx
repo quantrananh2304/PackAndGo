@@ -3,12 +3,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import {
   KeyboardAvoidingView,
   Pressable,
+  StyleSheet,
   TextInput,
   TouchableOpacity,
   View,
 } from 'react-native';
 import { AppText, Button, Form } from '~/components';
-import { Colors, Metrics } from '~/themes';
+import { Colors, Fonts, Metrics } from '~/themes';
 import * as Yup from 'yup';
 import { Screen } from '~/navigations';
 
@@ -170,7 +171,7 @@ export default function VerifyOTP({ route, navigation }: any) {
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
@@ -199,6 +200,6 @@ const style = {
 
   code: {
     fontSize: 20,
-    fontWeight: 500,
+    fontWeight: Fonts.fontWeight.semiBold,
   },
-};
+});

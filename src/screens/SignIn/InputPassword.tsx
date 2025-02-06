@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { KeyboardAvoidingView, TouchableOpacity, View } from 'react-native';
+import { KeyboardAvoidingView, TouchableOpacity, View, StyleSheet } from 'react-native';
 import {
   AppText,
   Button,
@@ -40,34 +40,21 @@ export default function InputPassword({ navigation }: any) {
 
   return (
     <KeyboardAvoidingView behavior={Metrics.isIOS ? 'padding' : 'height'}>
-      <View
-        style={{
-          width: '100%',
-          height: '100%',
-          paddingHorizontal: 16,
-          paddingBottom: 58,
-          display: 'flex',
-          justifyContent: 'space-between',
-          backgroundColor: Colors.white,
-        }}>
+      <View style={styles.container}>
         <LogoAndText
-          containerStyle={{
-            width: '100%',
-            marginTop: 92,
-            height: 108,
-          }}
-          logoStyle={{ width: 60, height: 60 }}
-          textStyle={{ fontSize: 24, marginTop: 12 }}
+          containerStyle={styles.logoContainer}
+          logoStyle={styles.logo}
+          textStyle={styles.logoText}
         />
 
         <View>
           <GreetingText
             greetingText="Welcome back,"
             welcomeText="Tran Anh Quan!"
-            containerStyle={{ marginBottom: 40 }}
+            containerStyle={styles.greetingContainer}
           />
 
-          <AppText style={{ marginBottom: 8 }}>Password</AppText>
+          <AppText style={styles.passwordLabel}>Password</AppText>
 
           <Form
             initialValues={{ phoneNumber: '' }}
@@ -77,54 +64,43 @@ export default function InputPassword({ navigation }: any) {
             validate={onValidate}>
             <Input
               placeholder="Enter your password"
-              inputStyle={{ marginBottom: 8 }}
+              inputStyle={styles.input}
               keyboardType="default"
               name="password"
               isShowClearButton={true}
               secureTextEntry={true}
             />
 
-            <TouchableOpacity style={{ width: '100%', marginBottom: 24 }}>
-              <AppText
-                style={{ textAlign: 'right', fontSize: 14, fontWeight: 400 }}>
+            <TouchableOpacity style={styles.forgotPasswordContainer}>
+              <AppText style={styles.forgotPasswordText}>
                 Forgot password?
               </AppText>
             </TouchableOpacity>
 
             <Button
               disabled={disabled || loading}
-              buttonStyle={
-                disabled || loading
-                  ? {
-                      marginBottom: 24,
-                      shadowOpacity: 0,
-                      backgroundColor: Colors.purple_lighter,
-                    }
-                  : { marginBottom: 24 }
-              }
+              buttonStyle={[
+                styles.button,
+                (disabled || loading) && styles.disabledButton,
+              ]}
               buttonText="Next"
             />
           </Form>
 
-          <View
-            style={{
-              display: 'flex',
-              flexDirection: 'row',
-              justifyContent: 'center',
-            }}>
-            <AppText style={{ color: Colors.grey }}>
+          <View style={styles.registerContainer}>
+            <AppText style={styles.registerText}>
               Don't have account?
             </AppText>
 
             <TouchableOpacity
-              style={{ marginLeft: 4 }}
+              style={styles.registerLinkContainer}
               onPress={() =>
                 navigation.reset({
                   index: 0,
                   routes: [{ name: Screen.Register }],
                 })
               }>
-              <AppText style={{ color: Colors.purple }}>Register here</AppText>
+              <AppText style={styles.registerLink}>Register here</AppText>
             </TouchableOpacity>
           </View>
         </View>
@@ -132,3 +108,67 @@ export default function InputPassword({ navigation }: any) {
     </KeyboardAvoidingView>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    width: '100%',
+    height: '100%',
+    paddingHorizontal: 16,
+    paddingBottom: 58,
+    display: 'flex',
+    justifyContent: 'space-between',
+    backgroundColor: Colors.white,
+  },
+  logoContainer: {
+    width: '100%',
+    marginTop: 92,
+    height: 108,
+  },
+  logo: {
+    width: 60,
+    height: 60,
+  },
+  logoText: {
+    fontSize: 24,
+    marginTop: 12,
+  },
+  greetingContainer: {
+    marginBottom: 40,
+  },
+  passwordLabel: {
+    marginBottom: 8,
+  },
+  input: {
+    marginBottom: 8,
+  },
+  forgotPasswordContainer: {
+    width: '100%',
+    marginBottom: 24,
+  },
+  forgotPasswordText: {
+    textAlign: 'right',
+    fontSize: 14,
+    fontWeight: '400',
+  },
+  button: {
+    marginBottom: 24,
+  },
+  disabledButton: {
+    shadowOpacity: 0,
+    backgroundColor: Colors.purple_lighter,
+  },
+  registerContainer: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'center',
+  },
+  registerText: {
+    color: Colors.grey,
+  },
+  registerLinkContainer: {
+    marginLeft: 4,
+  },
+  registerLink: {
+    color: Colors.purple,
+  },
+});

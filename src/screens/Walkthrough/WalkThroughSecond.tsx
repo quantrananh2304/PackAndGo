@@ -1,9 +1,9 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import { walkthroughWelcome } from '~/assets/images';
 import { AppText, GreetingText, WalkthroughButton } from '~/components';
 import { Screen } from '~/navigations';
-import { Colors } from '~/themes';
+import { Colors, Fonts } from '~/themes';
 
 export default function WalkThroughSecond({ navigation }: { navigation: any }) {
   return (
@@ -33,7 +33,7 @@ export default function WalkThroughSecond({ navigation }: { navigation: any }) {
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   container: {
     backgroundColor: Colors.white,
     display: 'flex',
@@ -51,10 +51,10 @@ const style = {
   },
 
   description: {
-    fontFamily: 'BeVietnamPro-Regular',
+    fontFamily: Fonts.fontFamily,
     fontWeight: 400,
     fontSize: 15,
     color: Colors.grey,
     marginTop: 24,
   },
-};
+});

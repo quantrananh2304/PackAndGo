@@ -1,7 +1,8 @@
 import React from 'react';
-import { Image, View } from 'react-native';
+import { Image, StyleSheet, View } from 'react-native';
 import AppText from './Text';
 import { logo } from '~/assets/images';
+import { Colors, Fonts } from '~/themes';
 
 type Props = {
   containerStyle?: any;
@@ -23,7 +24,7 @@ export default function LogoAndText({
   );
 }
 
-const style = {
+const style = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
@@ -42,10 +43,10 @@ const style = {
   packAndGo: {
     marginTop: 20,
     fontStyle: 'normal',
-    fontWeight: 600,
+    fontWeight: Fonts.fontWeight.bold,
     fontSize: 30,
     lineHeight: 42,
-    color: '#5C42E3',
-    fontFamily: 'BeVietnamPro-Regular',
+    color: Colors.purple,
+    fontFamily: Fonts.fontFamily,
   },
-};
+});

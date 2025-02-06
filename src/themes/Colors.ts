@@ -10,6 +10,7 @@ const Colors = {
   black: '#1C1C1E',
 
   purple: '#5C42E3',
+  purple_border: '#CCAFF2',
   purple_disabled: '#DAD1FF',
   purple_light: '#ccaff2',
   purple_lighter: '#DAD1FF',
